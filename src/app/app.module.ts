@@ -9,6 +9,10 @@ import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule} from "@angular/material";
+import {FormsModule} from "@angular/forms";
+import {ApiService} from "./services/api.service";
+import {HttpClientModule} from "@angular/common/http";
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +20,8 @@ import {MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule} from
     NavbarComponent,
     RegisterComponent,
     LoginComponent,
-    ProfileComponent
+    ProfileComponent,
+    LandingPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,9 +30,11 @@ import {MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule} from
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    MatCardModule
+    MatCardModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

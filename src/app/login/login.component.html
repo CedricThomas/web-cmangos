@@ -1,2 +1,36 @@
-<p>login works!</p>
-<button mat-button>Click me!</button>
+<div>
+  <mat-card *ngIf="showErrorMessage" class="example-card" style="width: 300px; background-color: #ffdce0;margin-bottom: 10px">
+    <mat-card-content style="display: grid">
+      <mat-label><span style="color: #86181d;">Incorrect username or password </span></mat-label>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="example-card" style="width: 300px;">
+    <div style="display: flex;justify-content: center; margin: auto">
+      <h1>Steak</h1>
+      <img
+        style="margin: auto 0 auto 10px"
+        width="40"
+        height="40"
+        alt="Angular Logo"
+        src="../assets/Steak.png"
+      />
+    </div>
+    <mat-card-content style="display: grid">
+      <mat-form-field appearance="outline">
+        <mat-label>Username</mat-label>
+        <input type="text" name="username" [(ngModel)]="username" matInput required>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input type="password" [(ngModel)]="password" matInput required>
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions style="display: flex;justify-content: center;">
+      <button (click)="loginToServer()" mat-raised-button color="primary">Login</button>
+    </mat-card-actions>
+    <div style="display: flex;justify-content: center">
+      <span style="font-size: 14px;color: darkblue;cursor: pointer" routerLink="/register">Register</span>
+    </div>
+  </mat-card>
+</div>

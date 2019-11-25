@@ -4,13 +4,15 @@
     style="cursor: pointer"
     width="40"
     alt="Angular Logo"
-    routerLink="/profile"
+    routerLink="/"
     src="../assets/Steak.png"
   />
   <div style="display: flex;">
+    <button mat-button style="margin: 7px 0 0 0" routerLink="/">Landing Page</button>
+    <button mat-button style="margin: 7px 0 0 0" routerLink="/login">Login</button>
     <button mat-button style="margin: 7px 0 0 0" routerLink="/profile">Profile</button>
     <button mat-button style="margin: 7px 0 0 0" routerLink="/register">Register</button>
-    <button mat-button style="margin: 7px 10px 0 0" routerLink="/login">Sign out</button>
+    <button mat-button style="margin: 7px 10px 0 0" (click)="logout()">Log out</button>
   </div>
 
 </div>

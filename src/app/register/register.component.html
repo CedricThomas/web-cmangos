@@ -1,28 +1,53 @@
-<mat-card class="example-card" style="width: 300px;">
-  <h4>Create an account</h4>
-  <mat-card-content style="display: grid">
-    <mat-form-field appearance="outline">
-      <mat-label>Username</mat-label>
-      <input matInput placeholder="Placeholder">
-    </mat-form-field>
-    <mat-form-field appearance="outline">
-      <mat-label>Email address</mat-label>
-      <input type="email" matInput placeholder="Placeholder">
-    </mat-form-field>
-    <mat-form-field appearance="outline">
-      <mat-label>Password</mat-label>
-      <input type="password" matInput placeholder="Placeholder">
-    </mat-form-field>
-    <mat-form-field appearance="outline">
-      <mat-label>Password (confirm)</mat-label>
-      <input type="password" matInput placeholder="Placeholder">
-    </mat-form-field>
-    <mat-form-field appearance="outline">
-      <mat-label>Token</mat-label>
-      <input matInput placeholder="Placeholder">
-    </mat-form-field>
-  </mat-card-content>
-  <mat-card-actions style="display: flex;justify-content: center;">
-    <button mat-raised-button color="primary">Register</button>
-  </mat-card-actions>
-</mat-card>
+<div>
+  <mat-card *ngIf="showErrorMessage" class="example-card" style="width: 300px; background-color: #ffdce0;margin-bottom: 10px">
+    <mat-card-content style="display: grid">
+      <mat-label><span style="color: #86181d;">{{errorMessage}}</span></mat-label>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card *ngIf="!accountCreationValidation" class="example-card" style="width: 300px;">
+    <div style="display: flex;justify-content: center; margin: auto">
+      <h1>Steak</h1>
+      <img
+        style="margin: auto 0 auto 0"
+        width="40"
+        height="40"
+        alt="Angular Logo"
+        src="../assets/Steak.png"
+      />
+    </div>
+    <h4>Create an account</h4>
+    <mat-card-content style="display: grid">
+      <mat-form-field appearance="outline">
+        <mat-label>Username</mat-label>
+        <input type="text" name="username" [(ngModel)]="username" matInput required>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Email address</mat-label>
+        <input type="email" matInput [(ngModel)]="email" name="email" [email]="true" required>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input type="password" [(ngModel)]="password" matInput required>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Password (confirm)</mat-label>
+        <input type="password" [(ngModel)]="repeat" matInput required>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Token</mat-label>
+        <input type="text" matInput [(ngModel)]="token">
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions style="display: flex;justify-content: center;">
+      <button (click)="createAccount()" mat-raised-button color="primary">Register</button>
+    </mat-card-actions>
+  </mat-card>
+  <div *ngIf="accountCreationValidation" style="justify-content: center; align-items: center">
+    <h1>Your account has been successfully created !</h1>
+    <div style="display: flex; justify-content: center;">
+      <span>If you are not redirect automatically, click <a routerLink="/login">here</a></span>
+    </div>
+  </div>
+</div>
+
